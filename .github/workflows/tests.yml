@@ -1,5 +1,4 @@
-
-name: Tests and Lint 
+name: Tests and Lint
 
 on:
   push:
@@ -13,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'   
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -26,9 +25,7 @@ jobs:
           pip install pytest ruff
 
       - name: Run Ruff (lint)
-        run: |
-          ruff check .
+        run: ruff check .
 
       - name: Run tests (pytest)
-        run: |
-          pytest
+        run: pytest
